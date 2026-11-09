@@ -130,17 +130,22 @@ td input.narx{width:110px;font-size:17px;text-align:right;padding:3px}
 #oyna button.asos{background:#C55A11;color:#fff;border:none;font-weight:bold}
 #tQarz{font-size:20px;font-weight:bold;color:#C00000;text-align:right}
 #chek{display:none}
-#xarBtn{font-size:20px;padding:10px 14px;background:#fff;border:2px solid #7F6000;color:#7F6000;border-radius:10px;cursor:pointer;font-weight:bold}
+#xarBtn{font-size:16px;padding:12px 12px;background:#fff;border:2px solid #7F6000;color:#7F6000;border-radius:10px;cursor:pointer;font-weight:bold;white-space:nowrap}
 #xarOyna{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:8;align-items:flex-start;justify-content:center;overflow:auto;padding:10px}
-#xarOyna .ich{background:#fff;border-radius:12px;padding:16px;width:min(96vw,520px);display:flex;flex-direction:column;gap:10px;margin-top:20px}
+#xarOyna .ich{background:#fff;border-radius:12px;padding:16px;width:min(96vw,540px);display:flex;flex-direction:column;gap:10px;margin:10px 0}
 #xarOyna h3{margin:0;color:#7F6000}
-#xarOyna input,#xarOyna select{font-size:20px;padding:8px;width:100%;box-sizing:border-box}
+#xarOyna input{font-size:22px;padding:10px;width:100%;box-sizing:border-box;border:1px solid #BFBFBF;border-radius:8px}
+#xTurlar{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
+.xt{font-size:16px;padding:12px 6px;border:2px solid #D9D9D9;background:#FAFAFA;border-radius:10px;cursor:pointer;font-weight:bold;color:#404040}
+.xt.plus{border-color:#A9D18E;color:#375623}
+.xt.sel{border-color:#7F6000;background:#FFF2CC;color:#7F6000}
+.xt.plus.sel{border-color:#375623;background:#E2EFDA;color:#375623}
 #xarOyna .tug{display:flex;gap:8px}
-#xarOyna button{font-size:18px;padding:12px;border-radius:8px;border:1px solid #999;background:#fff;cursor:pointer;flex:1}
-#xarOyna button.asos{background:#7F6000;color:#fff;border:none;font-weight:bold}
-#xBor{font-size:22px;font-weight:bold;color:#375623;text-align:center}
-#xRuy{font-size:14px;max-height:240px;overflow:auto;border-top:1px solid #eee}
-#xRuy div{display:flex;justify-content:space-between;gap:8px;padding:6px 2px;border-bottom:1px solid #f0f0f0}
+#xarOyna .tug button{font-size:18px;padding:13px;border-radius:8px;border:1px solid #999;background:#fff;cursor:pointer;flex:1}
+#xarOyna .tug button.asos{background:#7F6000;color:#fff;border:none;font-weight:bold}
+#xBor{font-size:22px;font-weight:bold;color:#375623;text-align:center;background:#E2EFDA;border-radius:8px;padding:8px}
+#xRuy{font-size:14px;border-top:1px solid #eee}
+#xRuy div{display:flex;justify-content:space-between;gap:8px;padding:7px 2px;border-bottom:1px solid #f0f0f0}
 #xXabar{min-height:20px;font-weight:bold}
 #prnBtn{font-size:16px;padding:12px 12px;background:#fff;border:2px solid #595959;color:#595959;border-radius:10px;cursor:pointer;font-weight:bold;white-space:nowrap}
 #prnBtn.on{background:#375623;border-color:#375623;color:#fff}
@@ -161,7 +166,7 @@ body.qayt #qaytBelgi{display:block}
   #ekran{height:auto}
   #top{flex-wrap:wrap;gap:6px}
   #kod{flex-basis:100%;font-size:18px;padding:10px}
-  #tTugma,#qarzBtn,#qaytBtn{flex:1;font-size:14px;padding:10px 6px}
+  #tTugma,#qarzBtn,#qaytBtn,#xarBtn{flex:1;font-size:14px;padding:10px 6px}
   #asosiy{flex-direction:column;gap:8px}
   #tovarlar{width:auto;min-width:0;max-height:300px}
   #tiles{grid-template-columns:repeat(auto-fill,minmax(105px,1fr))}
@@ -197,13 +202,14 @@ body.qayt #qaytBelgi{display:block}
 <div id="pinOyna"><h2>🛒 Касса</h2><div>Пин-кодингизни киритинг</div><input id="pinInp" type="password" inputmode="numeric" autocomplete="off" maxlength="8"><button id="pinBtn">Кириш</button><div id="pinXabar"></div></div>
 <div id="ekran">
   <div id="kimBar"><span id="kimBelgi"></span><button id="chiqBtn">Чиқиш</button></div>
+  
   <div id="top">
     <input id="kod" autocomplete="off" placeholder="Штрих-кодни сканер қилинг ёки товар номидан 2-3 ҳарф ёзинг…">
     <button id="kamBtn" title="Камера билан сканер">📷</button>
     <button id="tTugma">🧩 Товарлар</button>
     <button id="qarzBtn">💰 Қарз тўлови</button>
     <button id="qaytBtn">↩ Қайтариш</button>
- <button id="xarBtn" title="Харажатлар">⋯</button>
+    <button id="xarBtn">💸 Харажат</button>
     <button id="prnBtn" title="Телефондан сотилган чекларни шу компьютер принтеридан чиқариш">🖨</button>
   </div>
   <div id="qaytBelgi">↩ ҚАЙТАРИШ РЕЖИМИ — харидор қайтарган товарни сканер қилинг</div>
@@ -250,16 +256,15 @@ body.qayt #qaytBelgi{display:block}
 <div id="varOyna"><div class="ich"><h3 id="varNom"></h3><div id="varRuy"></div><button id="varYop">Ёпиш</button></div></div>
 <div id="kamOyna"><div id="kamera"></div><div id="kamXabar">Штрих-кодни рамка ичига тўғриланг…</div><label id="rasmBtn" style="display:none;font-size:18px;padding:14px 22px;border-radius:10px;background:#375623;color:#fff;font-weight:bold;cursor:pointer">📸 Расмга олиб ўқиш<input id="rasmInp" type="file" accept="image/*" capture="environment" style="display:none"></label><div id="rasmIsh" style="display:none"></div><button id="kamYop">✕ Ёпиш</button></div>
 <div id="xarOyna"><div class="ich">
-  <h3>💸 Харажатлар ва касса</h3>
-  <div id="xPinQ"><div class="kichik">Эга пин-кодини киритинг</div><input id="xPin" type="password" inputmode="numeric" autocomplete="off" maxlength="8"></div>
-  <div id="xForma" style="display:none;flex-direction:column;gap:10px">
-    <div id="xBor"></div>
-    <select id="xTur"></select>
-    <input id="xSum" inputmode="numeric" placeholder="Сумма">
-    <input id="xIzoh" placeholder="Кимга / нимага (масалан: Ҳидоят, такси)">
-  </div>
+  <h3>💸 Харажат / касса</h3>
+  <div id="xBor">Юкланмоқда…</div>
+  <div id="xSher" class="kichik"></div>
+  <div id="xTurlar"></div>
+  <input id="xSum" inputmode="numeric" placeholder="Сумма" autocomplete="off">
+  <input id="xIzoh" placeholder="Изоҳ (шарт эмас)" autocomplete="off">
   <div id="xXabar" class="kichik"></div>
-  <div class="tug"><button id="xYop">Ёпиш</button><button id="xOk" class="asos">Кириш</button></div>
+  <div class="tug"><button id="xYop">Ёпиш</button><button id="xOk" class="asos">💾 Сақлаш</button></div>
+  <div class="kichik" style="margin-top:4px">Бугунги ёзувлар:</div>
   <div id="xRuy"></div>
 </div></div>
 <div id="chek"></div>
@@ -360,32 +365,27 @@ $('sot').addEventListener('click',sot);
 $('tozala').addEventListener('click',function(){if(!sav.length||confirm('Сават тозалансинми?')){sav=[];tozaMaydon();chiz();$('kod').focus()}});
 document.addEventListener('keydown',function(ev){if(ev.key==='F9'){ev.preventDefault();if($('oyna').style.display!=='flex')sot()}});
 function tozaMaydon(){['cheg','ber','karta','mijoz','tel','hozir'].forEach(function(i){$(i).value=''});$('tolov').value='Нақд'}
-var EPIN=null;
+var XTUR='',XKOD='';
 function xChiz(d){
-  $('xBor').textContent='Кассада ҳозир: '+f(d.kassada)+' сўм';
-  if(!$('xTur').options.length)$('xTur').innerHTML=d.turlar.map(function(t){return'<option>'+e(t)+'</option>'}).join('');
-  $('xRuy').innerHTML=d.bugun.length?d.bugun.map(function(x){return'<div><span>'+e(x[0])+' · <b>'+e(x[1])+'</b> '+e(x[3])+'</span><b style="color:'+(x[1]==='Кассага қўйилди'?'#375623':'#C00000')+'">'+(x[1]==='Кассага қўйилди'?'+':'−')+f(x[2])+'</b></div>'}).join(''):'<div class="kichik">Бугун ёзув йўқ</div>';
+  $('xBor').textContent='Астатка (кассада): '+f(d.kassada)+' сўм';
+  $('xSher').innerHTML=(d.sheriklar||[]).map(function(x){return'<div>👤 <b>'+e(x[0])+'</b> олган пули: <b style="color:#C00000">'+f(x[2])+'</b> сўм</div>'}).join('');
+  if(!$('xTurlar').children.length)$('xTurlar').innerHTML=d.turlar.filter(function(t){return!t[1]}).map(function(t){return'<button class="xt'+(t[1]?' plus':'')+'" data-t="'+e(t[0])+'">'+(t[1]?'➕ ':'')+e(t[0])+'</button>'}).join('');
+  [].forEach.call($('xTurlar').children,function(b){b.onclick=function(){XTUR=b.getAttribute('data-t');[].forEach.call($('xTurlar').children,function(z){z.classList.toggle('sel',z===b)});$('xSum').focus()}});
+  $('xRuy').innerHTML=d.bugun.length?d.bugun.map(function(x){var p=x[4];return'<div><span>'+e(x[0])+' · <b>'+e(x[1])+'</b> '+e(x[3])+'</span><b style="color:'+(p?'#375623':'#C00000')+'">'+(p?'+':'−')+f(x[2])+'</b></div>'}).join(''):'<div class="kichik">Бугун ёзув йўқ</div>';
 }
-function xOch(){$('xarOyna').style.display='flex';$('xXabar').textContent='';if(EPIN){$('xPinQ').style.display='none';$('xForma').style.display='flex';$('xOk').textContent='💾 Сақлаш';$('xSum').focus()}else{$('xPinQ').style.display='block';$('xForma').style.display='none';$('xRuy').innerHTML='';$('xOk').textContent='Кириш';$('xPin').value='';$('xPin').focus()}}
-$('xarBtn').addEventListener('click',xOch);
-$('xYop').addEventListener('click',function(){$('xarOyna').style.display='none';EPIN=null;$('kod').focus()});
+function xYukla(){google.script.run.withSuccessHandler(function(j){xChiz(JSON.parse(j))}).withFailureHandler(function(er){XKOD='';$('xarOyna').style.display='none';xabar('❌ '+er.message,1);alert('❌ '+er.message)}).xarajatKir(JSON.stringify({kod:XKOD}))}
+$('xarBtn').addEventListener('click',function(){var k=prompt('💸 Харажат коди:');if(k===null)return;XKOD=String(k).trim();if(!XKOD)return;$('xarOyna').style.display='flex';$('xXabar').textContent='';$('xBor').textContent='Юкланмоқда…';xYukla()});
+$('xYop').addEventListener('click',function(){XKOD='';$('xarOyna').style.display='none';$('kod').focus()});
 $('xOk').addEventListener('click',function(){
   var b=this;
-  if(!EPIN){
-    var pn=$('xPin').value.trim();if(pn.length<4){$('xXabar').textContent='Пин камида 4 рақам';return}
-    b.disabled=true;$('xXabar').textContent='Текширилмоқда…';
-    google.script.run.withSuccessHandler(function(j){b.disabled=false;EPIN=pn;xOch();xChiz(JSON.parse(j))})
-      .withFailureHandler(function(er){b.disabled=false;$('xXabar').textContent='❌ '+er.message}).xarajatKir(JSON.stringify({epin:pn}));
-    return;
-  }
-  var sm=son($('xSum').value);if(sm<=0){$('xXabar').textContent='Суммани ёзинг';$('xSum').focus();return}
-  var tr=$('xTur').value,iz=$('xIzoh').value.trim();
-  if(!confirm(tr+': '+f(sm)+' сўм'+(iz?' — '+iz:'')+'\nСақлансинми?'))return;
+  if(!XTUR){$('xXabar').textContent='⚠ Турини танланг';return}
+  var sm=son($('xSum').value);if(sm<=0){$('xXabar').textContent='⚠ Суммани ёзинг';$('xSum').focus();return}
+  var iz=$('xIzoh').value.trim();
+  if(!confirm(XTUR+': '+f(sm)+' сўм'+(iz?' — '+iz:'')+'\nСақлансинми?'))return;
   b.disabled=true;$('xXabar').textContent='Сақланмоқда…';
-  google.script.run.withSuccessHandler(function(j){b.disabled=false;$('xSum').value='';$('xIzoh').value='';$('xXabar').textContent='✅ Сақланди';xChiz(JSON.parse(j))})
-    .withFailureHandler(function(er){b.disabled=false;$('xXabar').textContent='❌ '+er.message}).xarajatYoz(JSON.stringify({epin:EPIN,turi:tr,summa:sm,izoh:iz}));
+  google.script.run.withSuccessHandler(function(j){b.disabled=false;$('xSum').value='';$('xIzoh').value='';XTUR='';[].forEach.call($('xTurlar').children,function(z){z.classList.remove('sel')});$('xXabar').textContent='✅ Сақланди';xChiz(JSON.parse(j))})
+    .withFailureHandler(function(er){b.disabled=false;$('xXabar').textContent='❌ '+er.message}).xarajatYoz(JSON.stringify({turi:XTUR,summa:sm,izoh:iz,kod:XKOD}));
 });
-$('xPin').addEventListener('keydown',function(ev){if(ev.key==='Enter')$('xOk').click()});
 $('xSum').addEventListener('keydown',function(ev){if(ev.key==='Enter')$('xOk').click()});
 var QAYT=false,NAVBAT=false,PRN=false,prnT=null,prnBand=false;
 function prnTekshir(){
